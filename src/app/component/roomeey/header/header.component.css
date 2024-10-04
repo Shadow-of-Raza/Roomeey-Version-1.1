@@ -1,0 +1,19 @@
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+.user-action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 1.2rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+.user-action-btn:hover {
+    color:var(--main-color)
+}
+.user-action-btn i {
+    margin-right: 5px;
+}
