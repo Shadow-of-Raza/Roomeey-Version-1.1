@@ -21,6 +21,8 @@
           <div class="nav-outer d-flex align-items-center flex-wrap">
             <!-- Main Menu -->
             <nav class="main-menu navbar-expand-md">
+
+              
               <div class="navbar-header">
                 <!-- Toggle Button -->
                 <button
@@ -37,12 +39,13 @@
                   <span class="icon-bar"></span>
                 </button>
               </div>
-
+              <!-- End Toggle Button -->
               <div
                 class="navbar-collapse collapse clearfix"
                 id="navbarSupportedContent"
               >
                 <ul class="navigation clearfix">
+                  
                   <li>
                     <a routerLink="/home">Home</a>
                     <!-- <ul>
@@ -61,23 +64,72 @@
                   </li>
 
                   <li class="dropdown">
-                    <a routerLink="/about">Top Cities</a>
-                    <ul>
-                      <li><a href="#">Bhopaal</a></li>
-                      <li><a href="#">Delhi</a></li>
-                      <li><a href="#">Indore</a></li>
-                      <li><a href="#">Vidisha</a></li>
-                    </ul>
+                    <a routerLink="/about">About</a>
                   </li>
+
+                  <li class="search-box-btn search-box-outer">
+                    <a>Top Cities</a>
+                    <!-- <ul>
+                      <li class="dropdown"><a href="#">Bhopaal</a>
+                        <ul>
+                          <li><a href="#">Area 01</a></li>
+                          <li><a href="#">Area 02</a></li>
+                          <li><a href="#">Area 03</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a href="#">Delhi</a>
+                        <ul>
+                          <li><a href="#">Area 01</a></li>
+                          <li><a href="#">Area 02</a></li>
+                          <li><a href="#">Area 03</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a href="#">Indore</a>
+                        <ul>
+                          <li><a href="#">Area 01</a></li>
+                          <li><a href="#">Area 02</a></li>
+                          <li><a href="#">Area 03</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a href="#">Vidisha</a>
+                        <ul>
+                          <li><a href="#">Area 01</a></li>
+                          <li><a href="#">Area 02</a></li>
+                          <li><a href="#">Area 03</a></li>
+                        </ul>
+                      </li>
+                    </ul> -->
+                  </li>
+
                   <li class="dropdown">
-                    <a routerLink="/about">Properties</a>
+                    <a>Properties</a>
                     <ul>
-                      <li><a href="#">Buy</a></li>
-                      <li><a href="#">Rent</a></li>
+                      <li class="dropdown"><a href="#">Residential</a>
+                        <ul>
+                          <li><a href="#">Room</a></li>
+                          <li><a href="#">Flat</a></li>
+                          <li><a href="#">Appartment</a></li>
+                          <hr>
+                          <li><a href="#">House</a></li>
+                          <li><a href="#">Villa</a></li>
+
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a href="#">Commercial</a>
+                        <ul>
+                          <li><a href="#">Shop</a></li>
+                          <li><a href="#">Office</a></li>
+                          <hr>
+                          <li><a href="#">Industrial Buildings</a></li>
+                        </ul>
+                      </li>
+                      
                     </ul>
                   </li>
 
-                  <li><a href="#">Blog</a></li>
+                  <li class="dropdown">
+                    <a href="#">Blog</a>
+                  </li>
 
                   <li class="dropdown">
                     <a href="#">services</a>
@@ -96,12 +148,38 @@
           <div class="outer-box d-flex align-items-center flex-wrap">
             <!-- Header Options Box -->
             <div class="header-options_box d-flex align-items-center">
-              <!-- Search Btn -->
+              <!-- Search Btn
+               
               <div class="search-box-btn search-box-outer">
                 <span class="icon"
-                  ><img src="../../../assets/images/icons/search.svg" alt=""
+                  ><img src="../../../assets/images/icons/search.svg" alt="A"
                 /></span>
               </div>
+               -->
+
+               <!-- Search Popup -->
+                <div class="search-popup">
+                  <div class="color-layer"></div>
+                  <button class="close-search">
+                    <span class="flaticon-close"></span>
+                  </button>
+                  <form method="post">
+                    <div class="form-group">
+                      <input
+                        type="search"
+                        name="search-field"
+                        value=""
+                        placeholder="Search Here"
+                        required=""
+                      />
+                      <button
+                        class="fa fa-solid fa-magnifying-glass fa-fw"
+                        type="submit"
+                      ></button>
+                    </div>
+                  </form>
+                </div>
+                <!-- End Search Popup -->
 
               <!-- Nav Btn -->
               <div class="user-actions">

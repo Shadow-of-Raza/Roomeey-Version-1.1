@@ -880,7 +880,9 @@ img{
 	background-color:var(--color-two);
 }
 
-/* Cursor */
+/* 
+
+Cursor 
 
 .cursor {
     position: fixed;
@@ -954,7 +956,9 @@ img{
 
 .cursor-follower.hovered {
 	opacity: 1;
-}
+} 
+
+*/
   
 /* Cursor End */
 

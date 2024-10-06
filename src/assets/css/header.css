@@ -214,11 +214,14 @@
 	-moz-transition:all 300ms ease;
 	transition:all 300ms ease;
 	background-color:var(--color-three);
+	/* border: 2px solid blue; */
 }
 
 .main-header .main-menu .navbar-collapse{
 	padding:0px;
 	display:block;
+	height: auto;
+	/* border: 2px solid red; */
 }
 
 .main-header .header-lower .main-menu .navigation{
@@ -226,8 +229,10 @@
 }
 
 .main-header .main-menu .navigation > li{
+	/* border: 2px solid black; */
 	position:relative;
 	margin-right:30px;
+	margin-top:10px;
 	display:inline-block;
 	transition:all 500ms ease;
 	-moz-transition:all 500ms ease;
@@ -237,7 +242,7 @@
 }
 
 .main-header .main-menu .navigation > li:last-child{
-	border:none;
+	
 	margin-right:0px;
 	padding-right:0px;
 }
@@ -252,6 +257,7 @@
 }
 
 .main-header.fixed-header .header-lower{
+	
 	position: fixed;
 	left: 0px;
 	top: 0px;
@@ -263,22 +269,22 @@
 	box-shadow:0px 10px 15px rgba(0,0,0,0.10);
 	-ms-animation-name: fadeInDown;
 	-moz-animation-name: fadeInDown;
-	-op-animation-name: fadeInDown;
+	-webkit-op-animation-name: fadeInDown;
 	-webkit-animation-name: fadeInDown;
 	animation-name: fadeInDown;
 	-ms-animation-duration: 500ms;
 	-moz-animation-duration: 500ms;
-	-op-animation-duration: 500ms;
+	-webkit-op-animation-duration: 500ms;
 	-webkit-animation-duration: 500ms;
 	animation-duration: 500ms;
 	-ms-animation-timing-function: linear;
 	-moz-animation-timing-function: linear;
-	-op-animation-timing-function: linear;
+	-webkit-op-animation-timing-function: linear;
 	-webkit-animation-timing-function: linear;
 	animation-timing-function: linear;
 	-ms-animation-iteration-count: 1;
 	-moz-animation-iteration-count: 1;
-	-op-animation-iteration-count: 1;
+	-webkit-op-animation-iteration-count: 1;
 	-webkit-animation-iteration-count: 1;
 	animation-iteration-count: 1;
 	box-shadow: 0px 10px 15px rgba(0,0,0,0.04);
@@ -291,17 +297,18 @@
 .main-header .main-menu .navigation > li > a{
 	position:relative;
 	display:block;
-	font-size:16px;
-	font-weight:500;
+	font-size:15px;
+	font-weight:450;
 	line-height:20px;
 	padding:14px 0px;
-	color:rgba(var(--color-two-rgb), 0.70);
+	color:rgba(var(--color-two-rgb), 0.80);
 	transition:all 500ms ease;
 	-moz-transition:all 500ms ease;
 	-webkit-transition:all 500ms ease;
 	-ms-transition:all 500ms ease;
 	-o-transition:all 500ms ease;
 	text-transform: capitalize;
+	text-decoration: none;
 }
 
 /* .main-header .main-menu .navigation > li.dropdown > a{
@@ -310,6 +317,7 @@
 
 .main-header .main-menu .navigation > li:hover > a::before{
 	color: var(--main-color);
+	text-decoration: none;
 	transition:all 500ms ease;
 	-moz-transition:all 500ms ease;
 	-webkit-transition:all 500ms ease;
@@ -323,10 +331,12 @@
     display: flex;
     overflow: hidden;
     text-shadow: 0 17px 0 var(--main-color);
+	text-decoration: none;
 }
 
 .main-header .sticky-header .main-menu .navigation > li > a .menu-text{
 	text-shadow: 0 16px 0 var(--black-color);
+	
 }
 
 .main-header .main-menu .navigation > li > a .menu-text span:nth-child(1){
@@ -437,6 +447,7 @@
 .main-header .main-menu .navigation > li.current > a{
 	opacity:1;
 	color: var(--main-color);
+	text-decoration: none;
 }
 
 .main-header .main-menu .navigation > li > ul{
@@ -472,6 +483,7 @@
 
 .main-header .main-menu .navigation > li > ul > li{
 	position:relative;
+	text-decoration: none;
 	width:100%;
 	opacity:0;
 	text-align:left;
@@ -600,6 +612,7 @@
 
 .main-header .main-menu .navigation > li > ul > li > a{
 	position:relative;
+	text-decoration: none;
 	display:block;
 	line-height:24px;
 	letter-spacing:0.5px;
@@ -615,7 +628,9 @@
 }
 
 .main-header .main-menu .navigation > li > ul > li > a:before{
+	
 	position:absolute;
+
 	content:'';
 	left:0px;
 	top:6px;
@@ -657,6 +672,7 @@
 	font-size:12px;
 	color:var(--black-color);
 	font-family: 'Font Awesome 6 Free';
+	text-decoration: none;
 }
 
 .main-header .main-menu .navigation > li > ul > li.dropdown:hover > a:after{
@@ -797,6 +813,7 @@
 	-webkit-transition:all 500ms ease;
 	-ms-transition:all 500ms ease;
 	-o-transition:all 500ms ease;
+	text-decoration: none;
 }
 
 .main-header .main-menu .navigation > li > ul > li > ul > li > a:before{
@@ -862,6 +879,7 @@
 	cursor:pointer;
 	z-index:5;
 	display:none;
+	
 }
 
 /* Header Style Two */
@@ -1258,10 +1276,10 @@
 
 .main-header .search-box-btn{
 	position:relative;
-	display:block;
-	width:48px;
+	/* display:block; 
+	width:48px;*/
 	height:48px;
-	font-size:18px;
+	font-size:14px;
 	cursor:pointer;
 	line-height:44px;
 	text-align:center;
@@ -1276,14 +1294,14 @@
 	background-color:var(--color-three);
 }
 
-.main-header .search-box-btn:hover img{
+/* .main-header .search-box-btn:hover img{
 	filter: invert(100%);
 }
 
 .main-header .search-box-btn:hover{
 	color: var(--white-color);
 	background-color: var(--main-color);
-}
+} */
 
 .navSidebar-button{
 	position:relative;
