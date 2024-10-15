@@ -757,16 +757,7 @@
 
 
 
-	//Header Search
-	if($('.search-box-outer').length) {
-		$('.search-box-outer').on('click', function() {
-			$('body').addClass('search-active');
-		});
-		$('.close-search').on('click', function() {
-			$('body').removeClass('search-active');
-		});
-	}
-
+	
 
 
 	// LightBox Image
@@ -875,3 +866,134 @@
 	});	
 
 })(window.jQuery);
+
+/* ==========================================================================
+    Header Search & Autocomplete Suggestions On Input Field 
+   ========================================================================== */
+	
+	//  Header Search Toggel button open or close 
+	if($('.search-box-outer').length) {
+		$('.search-box-outer').on('click', function() {
+			$('body').addClass('search-active');
+		});
+		$('.close-search').on('click', function() {
+			$('body').removeClass('search-active');
+		});
+	}
+	let names = [
+		"Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", 
+		"Kolkata", "Surat", "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur", 
+		"Visakhapatnam", "Indore", "Thane", "Bhopal", "Patna", "Vadodara", 
+		"Ghaziabad", "Ludhiana", "Agra", "Nashik", "Faridabad", "Meerut", 
+		"Rajkot", "Kalyan-Dombivli", "Vasai-Virar", "Varanasi", "Srinagar", 
+		"Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad (Prayagraj)", 
+		"Howrah", "Gwalior", "Jabalpur", "Coimbatore", "Vijayawada", "Jodhpur", 
+		"Madurai", "Raipur", "Kota", "Guwahati", "Chandigarh", "Solapur", 
+		"Hubballi-Dharwad", "Bareilly", "Tiruchirappalli", "Moradabad", "Mysore", 
+		"Tiruppur", "Gurgaon", "Aligarh", "Jalandhar", "Bhubaneswar", "Salem", 
+		"Warangal", "Guntur", "Bhiwandi", "Saharanpur", "Gorakhpur", "Bikaner", 
+		"Amravati", "Noida", "Jamshedpur", "Bhilai", "Cuttack", "Firozabad", 
+		"Kochi", "Nellore", "Bhavnagar", "Dehradun", "Durgapur", "Asansol", 
+		"Rourkela", "Nanded", "Kolhapur", "Ajmer", "Akola", "Gulbarga", "Jamnagar", 
+		"Ujjain", "Loni", "Siliguri", "Jhansi", "Ulhasnagar", "Jammu", "Sangli", 
+		"Mangalore", "Erode", "Belgaum", "Kurnool", "Ambattur", "Udaipur", 
+		"Pimpri-Chinchwad", "Bilaspur", "Mathura", "Karimnagar"
+	  ];
+	  
+	  // Sort names in ascending order
+	  let sortedNames = names.sort();
+	  
+	  // Reference to the input field
+	  let input = document.getElementById("inputField");
+	  let currentFocus = -1; // Track current focus for keyboard navigation
+	  
+	  // Execute function on input change
+	  input.addEventListener("input", (e) => {
+		removeElements();
+		let val = input.value;
+	  
+		// Only show suggestions if input is not empty
+		if (!val) return false;
+	  
+		// Filter and display suggestions based on input value
+		for (let i of sortedNames) {
+		  if (i.toLowerCase().startsWith(val.toLowerCase())) {
+			// Create li element for each matching suggestion
+			let listItem = document.createElement("li");
+			listItem.classList.add("list-items");
+			listItem.style.cursor = "pointer";
+			listItem.setAttribute("onclick", "displayNames('" + i + "')");
+	  
+			// Highlight the matching part of the suggestion
+			let word = "<b>" + i.substr(0, input.value.length) + "</b>";
+			word += i.substr(input.value.length);
+			listItem.innerHTML = word;
+	  
+			// Append the list item to the list container
+			document.querySelector(".list").appendChild(listItem);
+		  }
+		}
+	  });
+	  
+	  // Add keyboard navigation support
+	  input.addEventListener("keydown", function (e) {
+		let items = document.querySelectorAll(".list-items");
+	  
+		// Arrow down key
+		if (e.key === "ArrowDown") {
+		  currentFocus++;
+		  addActive(items);
+		}
+		// Arrow up key
+		else if (e.key === "ArrowUp") {
+		  currentFocus--;
+		  addActive(items);
+		}
+		// Enter key
+		else if (e.key === "Enter") {
+		  e.preventDefault(); // Prevent form submission
+		  if (currentFocus > -1) {
+			// Simulate a click on the active suggestion
+			if (items[currentFocus]) {
+			  items[currentFocus].click();
+			}
+		  }
+		}
+	  });
+	  
+	  // Function to display the selected name in the input field
+	  function displayNames(value) {
+		input.value = value;
+		removeElements();
+		currentFocus = -1; // Reset focus
+	  }
+	  
+	  // Function to remove all list elements (clearing suggestions)
+	  function removeElements() {
+		let items = document.querySelectorAll(".list-items");
+		items.forEach((item) => item.remove());
+		currentFocus = -1; // Reset focus after clearing
+	  }
+	  
+	  // Function to add active class to focused suggestion
+	  function addActive(items) {
+		if (!items) return false;
+		
+		// Remove the "active" class from all items
+		removeActive(items);
+	  
+		if (currentFocus >= items.length) currentFocus = 0;
+		if (currentFocus < 0) currentFocus = items.length - 1;
+	  
+		// Add "active" class to the focused item
+		items[currentFocus].classList.add("autocomplete-active");
+	  
+		// Update the input value with the currently focused item
+		input.value = items[currentFocus].innerText;
+	  }
+	  
+	  // Function to remove the active class from all suggestions
+	  function removeActive(items) {
+		items.forEach(item => item.classList.remove("autocomplete-active"));
+	  }
+	  

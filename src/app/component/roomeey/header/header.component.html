@@ -4,15 +4,13 @@
   <div class="header-lower">
     <div class="auto-container">
       <div class="inner-container">
-        <div
-          class="d-flex justify-content-between align-items-center flex-wrap"
-        >
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
           <!-- Logo Box -->
           <div class="logo-box">
             <div class="logo">
-              <a href="index-2.html"
-                ><img src="../../../assets/images/logo.svg" alt="" title=""
-              /></a>
+              <a routerLink="/home">
+                <img src="../../../assets/images/logo.svg" alt="Roomeey" title="Roomeey"/>
+              </a>
             </div>
           </div>
           <!-- End Logo Box -->
@@ -20,88 +18,34 @@
           <!-- Nav Outer -->
           <div class="nav-outer d-flex align-items-center flex-wrap">
             <!-- Main Menu -->
-            <nav class="main-menu navbar-expand-md">
-
-              
+            <nav class="main-menu navbar-expand-md" > 
+              <!--  -->
               <div class="navbar-header">
                 <!-- Toggle Button -->
-                <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
               </div>
               <!-- End Toggle Button -->
-              <div
-                class="navbar-collapse collapse clearfix"
-                id="navbarSupportedContent"
-              >
+              <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                <!--  -->
                 <ul class="navigation clearfix">
-                  
+                  <!--  -->
+                  <!-- Home -->
                   <li>
                     <a routerLink="/home">Home</a>
-                    <!-- <ul>
-                        <li><a href="index-2.html">Homepage 01</a></li>
-                        <li><a href="index-3.html">Homepage 02</a></li>
-                        <li><a href="index-4.html">Homepage 03</a></li>
-                        <li class="dropdown">
-                          <a href="#">Header Styles</a>
-                          <ul>
-                            <li><a href="index-2.html">Header 01</a></li>
-                            <li><a href="index-3.html">Header 02</a></li>
-                            <li><a href="index-4.html">Header 03</a></li>
-                          </ul>
-                        </li>
-                      </ul> -->
                   </li>
 
-                  <li class="dropdown">
+                  <!-- About -->
+                  <li>
                     <a routerLink="/about">About</a>
                   </li>
 
-                  <li class="search-box-btn search-box-outer">
-                    <a>Top Cities</a>
-                    <!-- <ul>
-                      <li class="dropdown"><a href="#">Bhopaal</a>
-                        <ul>
-                          <li><a href="#">Area 01</a></li>
-                          <li><a href="#">Area 02</a></li>
-                          <li><a href="#">Area 03</a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="#">Delhi</a>
-                        <ul>
-                          <li><a href="#">Area 01</a></li>
-                          <li><a href="#">Area 02</a></li>
-                          <li><a href="#">Area 03</a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="#">Indore</a>
-                        <ul>
-                          <li><a href="#">Area 01</a></li>
-                          <li><a href="#">Area 02</a></li>
-                          <li><a href="#">Area 03</a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="#">Vidisha</a>
-                        <ul>
-                          <li><a href="#">Area 01</a></li>
-                          <li><a href="#">Area 02</a></li>
-                          <li><a href="#">Area 03</a></li>
-                        </ul>
-                      </li>
-                    </ul> -->
-                  </li>
-
+                  <!-- Properties -->
                   <li class="dropdown">
+                    <!--  -->
                     <a>Properties</a>
                     <ul>
                       <li class="dropdown"><a href="#">Residential</a>
@@ -112,7 +56,6 @@
                           <hr>
                           <li><a href="#">House</a></li>
                           <li><a href="#">Villa</a></li>
-
                         </ul>
                       </li>
                       <li class="dropdown"><a href="#">Commercial</a>
@@ -123,85 +66,116 @@
                           <li><a href="#">Industrial Buildings</a></li>
                         </ul>
                       </li>
-                      
                     </ul>
                   </li>
-
-                  <li class="dropdown">
+                  <!-- Blog -->
+                  <li>
                     <a href="#">Blog</a>
                   </li>
 
-                  <li class="dropdown">
+                  <!-- Services -->
+                  <li>
                     <a href="#">services</a>
                   </li>
 
-                  <li class="dropdown">
+                  <!-- Help -->
+                  <li>
                     <a href="#">Help</a>
+                  </li>
+
+                  <!-- Sign In -->
+                  <li>
+                    <a>Sign In</a>
                   </li>
                 </ul>
               </div>
             </nav>
+
+            
+
+
           </div>
           <!-- End Nav Outer -->
+
+          
+
 
           <!-- Outer Box -->
           <div class="outer-box d-flex align-items-center flex-wrap">
             <!-- Header Options Box -->
             <div class="header-options_box d-flex align-items-center">
-              <!-- Search Btn
-               
-              <div class="search-box-btn search-box-outer">
-                <span class="icon"
-                  ><img src="../../../assets/images/icons/search.svg" alt="A"
-                /></span>
-              </div>
-               -->
-
                <!-- Search Popup -->
                 <div class="search-popup">
                   <div class="color-layer"></div>
                   <button class="close-search">
                     <span class="flaticon-close"></span>
                   </button>
-                  <form method="post">
+                  <form autocomplete="off">
+                    <label for="search-field">Ener your city...</label>
                     <div class="form-group">
-                      <input
-                        type="search"
-                        name="search-field"
-                        value=""
-                        placeholder="Search Here"
-                        required=""
-                      />
-                      <button
-                        class="fa fa-solid fa-magnifying-glass fa-fw"
-                        type="submit"
-                      ></button>
+                      
+                      <input id="inputField" type="text" name="search-field" placeholder="Enter your city"/>
+                      <button>Search</button>
+                      <ul class="list"></ul>
+                      <i class="fa fa-solid fa-magnifying-glass fa-fw"></i>
+                      
                     </div>
                   </form>
                 </div>
                 <!-- End Search Popup -->
 
-              <!-- Nav Btn -->
-              <div class="user-actions">
-                <button class="user-action-btn" title="Login">
-                  <i class="fas fa-sign-in-alt"></i>
-                  <span>Login</span>
-                </button>
-                <button class="user-action-btn" title="Register">
-                  <i class="fas fa-user-plus"></i>
-                  <span>Register</span>
-                </button>
-              </div>
+               
+                  
+                  <!-- Profile Picture And Setting Button -->
+                  <nav class="main-menu-1 navbar-expand-md">                          
+                    <div class="navbar-collapse-1">
+                      <ul class="navigation-1 ">
+                        <li class="dropdown-1">
+                          <a><i class="fa-solid fa-gear"></i></a>
+                          <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Owner Dashboard</a>
+                              
+                            </li>
+                            <li><a href="#">Setting</a></li>
+                            <li><a href="#">Logout</a></li>
+                          </ul>
+                        </li>    
+                      </ul>
+                    </div>
+                  </nav>
+
+                   <!-- Header search icon -->
+                   <div class="search-box-btn search-box-outer">
+                    <span class="icon"
+                      ><img src="../../../assets/images/icons/search.svg" alt=""
+                    /></span>
+                  </div>
+
+
+
+
             </div>
 
             <!-- Header Button Box -->
-            <div class="header_button-box">
+            <!-- <div class="header_button-box">
               <a href="event-detail.html" class="theme-btn btn-style-one">
                 <span class="btn-wrap">
                   <span class="text-one">List Your Properties</span>
+                  <span class="text-two">List Your Properties</span>
+                </span>
+              </a>
+            </div> -->
+            <div class="header_button-box">
+              <a href="event-detail.html" class="theme-btn btn-style-one">
+                <span class="btn-wrap">
+                  <span class="text-one">Owner Dashboard</span>
+                  <span class="text-two">Owner Dashboard</span>
                 </span>
               </a>
             </div>
+
             <!-- Mobile Navigation Toggler -->
             <div class="mobile-nav-toggler">
               <span class="icon flaticon-menu"></span>
