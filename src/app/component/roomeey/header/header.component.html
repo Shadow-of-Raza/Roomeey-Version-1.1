@@ -84,60 +84,54 @@
                   </li>
 
                   <!-- Sign In -->
-                  <li>
-                    <a>Sign In</a>
+                  <li *ngIf="signin">
+                    <a routerLink="/sign-up">Sign Up</a>
                   </li>
                 </ul>
               </div>
             </nav>
-
-            
-
-
           </div>
           <!-- End Nav Outer -->
-
-          
-
 
           <!-- Outer Box -->
           <div class="outer-box d-flex align-items-center flex-wrap">
             <!-- Header Options Box -->
             <div class="header-options_box d-flex align-items-center">
                <!-- Search Popup -->
-                <div class="search-popup">
-                  <div class="color-layer"></div>
-                  <button class="close-search">
-                    <span class="flaticon-close"></span>
-                  </button>
-                  <form autocomplete="off">
-                    <label for="search-field">Ener your city...</label>
-                    <div class="form-group">
-                      
-                      <input id="inputField" type="text" name="search-field" placeholder="Enter your city"/>
-                      <button>Search</button>
-                      <ul class="list"></ul>
-                      <i class="fa fa-solid fa-magnifying-glass fa-fw"></i>
-                      
-                    </div>
-                  </form>
-                </div>
-                <!-- End Search Popup -->
-
-               
+               <div class="search-popup">
+                <div class="color-layer"></div>
+                <button class="close-search">
+                  <span class="flaticon-close"></span>
+                </button>
+                <form autocomplete="off">
+                  <label for="search-field">Enter your city...</label>
+                  <div class="form-group">
+                    <input #inputField id="inputField" type="text" name="search-field" placeholder="Enter your city" 
+                           (input)="onInputChange($event)" (keydown)="onKeyDown($event)" />
+                    <button>Search</button>
+                    <ul #listContainer class="list"></ul>
+                    <i class="fa fa-solid fa-magnifying-glass fa-fw"></i>
+                  </div>
+                </form>
+              </div>
+                <!-- End Search Popup -->                  
                   
-                  <!-- Profile Picture And Setting Button -->
-                  <nav class="main-menu-1 navbar-expand-md">                          
+                <!-- Profile Picture And Setting Button -->
+                  <nav *ngIf="profile" class="main-menu-1 navbar-expand-md">                          
                     <div class="navbar-collapse-1">
                       <ul class="navigation-1 ">
                         <li class="dropdown-1">
-                          <a><i class="fa-solid fa-gear"></i></a>
+                          <!-- <a><i class="fa-solid fa-gear"></i></a> -->
+                           <a>
+                            <img *ngIf="men" src="../../../../assets/images/header/man.png" alt="M">
+                            <img *ngIf="women"  src="../../../../assets/images/header/woman.png" alt="F">
+                            <img *ngIf="user" src="../../../../assets/images/header/woman.png"> <!-- add here user profile variable -->
+                           </a>
+                          
+
                           <ul>
                             <li><a href="#">Profile</a></li>
                             <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Owner Dashboard</a>
-                              
-                            </li>
                             <li><a href="#">Setting</a></li>
                             <li><a href="#">Logout</a></li>
                           </ul>
@@ -152,22 +146,18 @@
                       ><img src="../../../assets/images/icons/search.svg" alt=""
                     /></span>
                   </div>
-
-
-
-
             </div>
 
             <!-- Header Button Box -->
-            <!-- <div class="header_button-box">
+            <div *ngIf="list_your_properties" class="header_button-box">
               <a href="event-detail.html" class="theme-btn btn-style-one">
                 <span class="btn-wrap">
                   <span class="text-one">List Your Properties</span>
                   <span class="text-two">List Your Properties</span>
                 </span>
               </a>
-            </div> -->
-            <div class="header_button-box">
+            </div>
+            <div *ngIf="owner_dashboard" class="header_button-box">
               <a href="event-detail.html" class="theme-btn btn-style-one">
                 <span class="btn-wrap">
                   <span class="text-one">Owner Dashboard</span>

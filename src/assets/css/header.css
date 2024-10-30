@@ -183,22 +183,6 @@
     --m: calc(17px * -1);
 }
 
-.main-header .main-menu .navigation > li > a > span{
-	position:absolute;
-	right:-25px;
-	top:20px;
-	width:42px;
-	height:16px;
-	font-weight:600;
-	line-height:1.6em;
-	border-radius:50px;
-	letter-spacing:1px;
-	font-size:12px;
-	text-transform:uppercase;
-	color:var(--black-color);
-	background-color:var(--main-color);
-}
-
 .main-header .main-menu .navigation > li:last-child{
 	margin-right:0px;
 }
