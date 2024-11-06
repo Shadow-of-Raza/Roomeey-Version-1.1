@@ -75,14 +75,14 @@
 	-moz-transition:all 300ms ease;
 	transition:all 300ms ease;
 	background-color:var(--color-three);
-	/* border: 2px solid blue; */
+	/* border: 1px solid blue; */
 }
 
 .main-header .main-menu .navbar-collapse{
 	padding:0px;
 	display:block;
 	
-	/* border: 2px solid red; */
+	/* border: 1px solid red; */
 }
 
 .main-header .header-lower .main-menu .navigation{
@@ -90,7 +90,7 @@
 }
 
 .main-header .main-menu .navigation > li{
-	/* border: 2px solid black; */
+	/* border: 1px solid black; */
 	position:relative;
 	margin-right:30px;
 	margin-top:10px;
@@ -885,7 +885,7 @@
 	position: fixed;
 	left: 0;
 	top: 0;
-	height: 100vh;
+	/* height: 100vh; */
 	width: 100%;
 	z-index: 999999999;
 	margin-top: -540px;

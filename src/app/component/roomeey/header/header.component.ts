@@ -1,4 +1,8 @@
 import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
+declare var $: any;
 
 @Component({
   selector: 'app-header',
@@ -6,26 +10,29 @@ import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/co
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  isSignIn: boolean;
 
   // Constructor 
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2,
+    private dataService: DataService,
+    private router: Router
+  ) {}
 
   // Variable field 
 
-  signin: boolean = true; // Enable or disable sign in button
-  profile: boolean = false; // Enable or disable profile 
+  
+  profile: boolean = true; // Enable or disable profile 
   men: boolean = false; // Enable or disable men default image 
   women: boolean = false; // Enable or disable women default image 
-  user: boolean = true; // Enable or disable user image 
+  user_icon: boolean = true; // Enable or disable user image 
   list_your_properties: boolean = true; // Enable or disable list_your_properties button
   owner_dashboard: boolean = false; // Enable or disable owner_dashboard button
+  
 
   //==========================================================================//
   //                      Your component specific Code                        //
   //==========================================================================//
-
-// code here ....
 
   ngOnInit(): void {
     // Initialize event listeners once the component is loaded
@@ -34,6 +41,8 @@ export class HeaderComponent implements OnInit {
   }
 
 
+  
+  
 
 
 
@@ -87,7 +96,7 @@ export class HeaderComponent implements OnInit {
   
 
 
-
+// Search box toggle 
   initSearchBoxListeners() {
     const searchBoxOuter = document.querySelector('.search-box-outer');
     const closeSearch = document.querySelector('.close-search');
@@ -177,4 +186,32 @@ export class HeaderComponent implements OnInit {
   removeActive(items: NodeListOf<Element>) {
     items.forEach(item => this.renderer.removeClass(item, 'autocomplete-active'));
   }
+
+  //==========================================================================//
+  //                              Signup  Toggle                              //
+  //==========================================================================//
+  isRightPanelActive = false;
+
+  openModal(): void {
+    $('#loginModal').modal('show');
+  }
+
+  togglePanel(active: boolean): void {
+    this.isRightPanelActive = active;
+  }
+
+  closeModal(): void {
+    $('#loginModal').modal('hide');
+  }
+
+
+
+
+
+
+ 
 }
+ 
+
+
+

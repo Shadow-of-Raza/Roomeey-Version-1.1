@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,11 @@ import { ShowAllPropertiesComponent } from './component/owner/show-all-propertie
 import { UpdatePropertyComponent } from './component/owner/update-property/update-property.component';
 import { OwnerPropertyDescriptionComponent } from './component/owner/owner-property-description/owner-property-description.component';
 import { ForgotPasswordComponent } from './component/user/forgot-password/forgot-password.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { SignUpComponent } from './component/user/sign-up/sign-up.component';
+import { SignInComponent } from './component/user/sign-in/sign-in.component';
+import { SignOutComponent } from './component/user/sign-out/sign-out.component';
 
 @NgModule({
   declarations: [
@@ -53,12 +59,18 @@ import { ForgotPasswordComponent } from './component/user/forgot-password/forgot
          UpdatePropertyComponent,
          OwnerPropertyDescriptionComponent,
          
-
+    SignUpComponent,
+    SignOutComponent,
+    SignInComponent,
+    
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    CommonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
