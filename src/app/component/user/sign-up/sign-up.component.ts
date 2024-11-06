@@ -20,7 +20,7 @@ export class SignUpComponent {
   //==========================================================================//
   //                              User Sign Up                                //
   //==========================================================================//
-
+  showPassword = false;
 
 
   user: any = {
@@ -111,6 +111,12 @@ export class SignUpComponent {
     
     // Update the flag based on whether numbers are found
     this.showNumberErrorMessage = hasNumbers;
+  }
+
+
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
   
 }

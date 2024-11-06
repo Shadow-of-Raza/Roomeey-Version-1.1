@@ -41,7 +41,7 @@
                           </div>
                       </div>
 
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                           <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                           <input type="password" id="password" placeholder="Enter your password" name="password" [(ngModel)]="user.password" required />
                           <div *ngIf="userForm.controls['password'].errors?.['required'] && userForm.controls['password'].touched" class="error-message">
@@ -50,11 +50,26 @@
                           <div *ngIf="userForm.controls['password'].errors?.['minlength'] && userForm.controls['password'].touched" class="error-message">
                             *password must be at least 6 characters long
                           </div>
-                      </div>
-                      <!-- <div class="form-group">
-                          <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                          <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
                       </div> -->
+
+                      <div class="form-group">
+                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input
+                          type="{{ showPassword ? 'text' : 'password' }}"
+                          id="password"
+                          placeholder="Enter your password"
+                          name="password"
+                          [(ngModel)]="user.password"
+                          required
+                        />
+                        <i 
+                          class="zmdi zmdi-eye" 
+                          (click)="togglePasswordVisibility()" 
+                          [ngClass]="{ 'zmdi-eye-off': showPassword, 'zmdi-eye': !showPassword }"
+                          style="cursor: pointer; position: absolute; right: 10px; top: 10px;"
+                        ></i>
+                      </div>
+                      
                       <div class="form-group">
                         <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                         <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
@@ -94,7 +109,7 @@
                   <figure>  <img src="../../../assets/images/logo.svg" alt="Roomeey" title="Roomeey"/> </figure>
                   <h4>Things you can do with Us</h4>
                   <ul>
-                    <li>Post one Property for FREE</li>
+                    <li>Post all Property for FREE</li>
                     <li>Get accessed by over 1 Lakh Users</li>
                     <li>Showcase your property as Rental & PG</li>
                     
