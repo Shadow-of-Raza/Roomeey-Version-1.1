@@ -21,7 +21,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 export class SignInComponent {
 
 
-  formState: 'signup' | 'login' = 'login'; // Default form is signup
+  formState: 'signup' | 'login' = 'login'; 
 
 
 
