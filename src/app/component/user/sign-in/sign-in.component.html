@@ -1,1 +1,183 @@
-<p>sign-in works!</p>
+<nav class="navbar bg-body-tertiary py-2">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/home">
+        <img src="../../../../assets/images/logo.svg" alt="Roomeey" title="Roomeey"/>
+      </a>
+      <div class="p-2" style="font-size: large; cursor: pointer;" routerLink="/home">
+        <i class="fas fa-sign-out-alt"></i>
+      </div> 
+    </div>
+</nav>
+
+
+<div class="container-fluid body" >   
+    <div class="signup" *ngIf="formState === 'signup'" [@slideInOut]="'in'">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Sign up</h2>     
+                    <form>
+                        <div>
+                            <p>Are you</p>
+                            <div class="radio-inputs form-group pb-3">
+                                <label>
+                                    <input class="radio-input" type="radio" name="engine" checked>
+                                        <span class="radio-tile">
+                                            <span class="radio-label">Customer</span>
+                                        </span>
+                                </label>
+                                <label>
+                                    <input class="radio-input" type="radio" name="engine">
+                                    <span class="radio-tile">
+                                        <span class="radio-label">Owner</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="input-label" for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="name" id="name" placeholder="Your Name"   />
+                        </div>
+                        <div class="form-group">
+                            <label class="input-label" for="email"><i class="zmdi zmdi-email"></i></label>
+                            <input type="email" name="email" id="email" placeholder="Your Email"   />
+                        </div>
+                        <div class="form-group">
+                            <label class="input-label" for="phone"><i class="zmdi zmdi-phone"></i></label>
+                            <input type="text" placeholder="Enter your Phone" id="phone" name="phone" maxlength="10" pattern="^[6-9]\d{9}$" />
+                        </div>
+                        <div class="form-group">
+                            <label class="input-label" for="pass"><i class="zmdi zmdi-lock"></i></label>
+                            <input 
+                                type="{{ showPassword ? 'text' : 'password' }}"
+                                name="pass" 
+                                id="pass" 
+                                placeholder="Password"   />
+                            <i 
+                                class="zmdi zmdi-eye" 
+                                (click)="togglePasswordVisibility()" 
+                                [ngClass]="{ 'zmdi-eye-off': showPassword, 'zmdi-eye': !showPassword }"
+                                style="cursor: pointer; position: absolute; right: 10px; top: 10px;">
+                            </i>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"   />
+                            <label class="input-label" for="agree-term" class="label-agree-term">
+                                <span><span></span></span>I agree all statements in <a href="#" class="term-service">Terms of service</a>
+                            </label>
+                        </div>
+                        <div class="form-button">
+                            <button>Register
+                                <div class="arrow-wrapper">
+                                    <div class="arrow"></div>
+                                </div>
+                            </button>
+                        </div>
+                        
+                    </form>
+                    
+                    <p>
+                        Already have an account? <a (click)="switchForm('login')">Login</a>
+                    </p>
+  
+                </div>
+                
+  
+                <div class="signup-image">
+                  <div class="logo"> 
+                    <figure>  <img src="../../../assets/images/logo.svg" alt="Roomeey" title="Roomeey"/> </figure>
+                    <h4>Things you can do with Us</h4>
+                    <ul>
+                      <li>Post all Property for FREE</li>
+                      <li>Get accessed by over 1 Lakh Users</li>
+                      <li>Showcase your property as Rental & PG</li>
+                      
+                      <li>Performance in search & views online</li>
+                      <li>Add detailed property information & multiple photos per listing</li>
+  
+                      <li>Get instant queries over Phone, Email and SMS</li>
+                      <li>24x7 Customer Support</li>
+                      <li>Easy way to find your favorite property</li>
+                    </ul>
+                   
+                  </div>
+                </div>
+  
+            </div>
+        </div>
+    </div>
+
+    <!-- Sing in  Form -->
+    <div class="sign-in" *ngIf="formState === 'login'" [@slideInOut]="'in'" >
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-image">
+                    <div class="logo"> 
+                      <figure>  <img src="../../../assets/images/logo.svg" alt="Roomeey" title="Roomeey"/> </figure>
+                        <h4>Things you can do with Us</h4>
+                      <ul>
+                        <li>Post all Property for FREE</li>
+                        <li>Get accessed by over 1 Lakh Users</li>
+                        <li>Showcase your property as Rental & PG</li>
+                        
+                        <li>Performance in search & views online</li>
+                        <li>Add detailed property information & multiple photos per listing</li>
+    
+                        <li>Get instant queries over Phone, Email and SMS</li>
+                        <li>24x7 Customer Support</li>
+                        <li>Easy way to find your favorite property</li>
+                      </ul>
+                     
+                    </div>
+                </div>
+
+                <div class="signin-form">
+                    <h2 class="form-title">Login</h2>
+                    <form>
+                        <div class="form-group">
+                            <label class="input-label" for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="your_name" id="your_name" placeholder="Enter your Email or Phone"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="input-label" for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                            <input 
+                                type="{{ showPassword ? 'text' : 'password' }}" 
+                                name="your_pass" 
+                                id="your_pass" 
+                                placeholder="Enter your password"/>
+                            <i 
+                                class="zmdi zmdi-eye" 
+                                (click)="togglePasswordVisibility()" 
+                                [ngClass]="{ 'zmdi-eye-off': showPassword, 'zmdi-eye': !showPassword }"
+                                style="cursor: pointer; position: absolute; right: 10px; top: 10px;">
+                            </i>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                            <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            <a style="float: right; margin-top: 3px;" href="#">Forgot password?</a>
+                        </div>
+                        <div class="form-button">
+                            <button>Login</button>
+                        </div>
+                        
+                    </form>
+                    <div class="social-login">
+                        <span class="social-label">Or login with</span>
+                        <ul class="socials">
+                            <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                            <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                            <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                        </ul>
+                    </div>
+                    <p>
+                        Don't have an account? <a (click)="switchForm('signup')">Sign-Up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

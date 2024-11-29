@@ -67,7 +67,7 @@
                   <!-- Help -->
                   <li> <a href="#">Help</a> </li>
                   <!-- Sign In -->
-                  <li> <a routerLink="/sign-up">SignUp</a> </li> 
+                  <li> <a routerLink="/login" target="_blank">Login</a> </li> 
 
                   
                 </ul>
@@ -100,35 +100,12 @@
                 <!-- End Search Popup -->                  
                   
                 <!-- Profile Picture And Setting Button -->
-                  <!-- <nav *ngIf="profile" class="main-menu-1 navbar-expand-md">                          
-                    <div class="navbar-collapse-1">
-                      <ul class="navigation-1 ">
-                        <li class="dropdown-1">
-                          
-                           <a>
-                            <img *ngIf="men" src="../../../../assets/images/header/man.png" alt="M">
-                            <img *ngIf="women"  src="../../../../assets/images/header/woman.png" alt="F">
-                            <img *ngIf="user_icon" src="../../../../assets/images/header/man.png"> 
-                           </a>
-                          
-
-                          <ul>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Setting</a></li>
-                            <li><a href="#">Logout</a></li>
-                          </ul>
-                        </li>   
-                      </ul>
-                    </div>
-                  </nav> -->
+                  
 
                 
                    <!-- Header search icon -->
                    <div class="search-box-btn search-box-outer">
-                    <span class="icon"
-                      ><img src="../../../assets/images/icons/search.svg" alt=""
-                    /></span>
+                    <span class="icon"><img src="../../../assets/images/icons/search.svg" alt=""/></span>
                   </div>
             </div>
 
@@ -150,8 +127,103 @@
                 </span>
               </a>
             </div>
-            
 
+            <!-- Profile box -->
+            <div class="list-unstyled">
+              <div class="dropdown-menubar ml-2">
+                
+                <!-- Dropdown Button -->
+                <a class="rounded-circle" href="#" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="avatar avatar-md avatar-indicators avatar-online">
+                    <img src="https://i.postimg.cc/BvNYhMHS/user-img.jpg" alt="some user image" class="rounded-circle" />
+                  </div>
+                </a>
+                
+                <!-- Dropdown Menu -->
+                <div class="dropdown-menu pb-2" aria-labelledby="dropdownUser">
+                  
+                  <!-- User Info -->
+                  <div class="dropdown-item">
+                    <div class="d-flex py-2">
+                      <div class="avatar avatar-md avatar-indicators avatar-online">
+                        <img src="https://i.postimg.cc/BvNYhMHS/user-img.jpg" alt="some user image" class="rounded-circle" />
+                      </div>
+                      <div class="ml-3 lh-1">
+                        <h5 class="mb-0">Annette Black</h5>
+                        <p class="mb-0">annette@company.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Divider -->
+                  <div class="dropdown-divider"></div>
+                  
+                  <!-- Menu Items -->
+                  <div class="">
+                    <ul class="list-unstyled">
+                      
+                      <!-- Profile -->
+                      <li>
+                        <a class="dropdown-item" href="">
+                          <span class="mr-1">
+                            
+                          </span>
+                          Profile
+                        </a>
+                      </li>
+                      
+                      <!-- List Your Properties -->
+                      <li>
+                        <a class="dropdown-item" href="">
+                          <span class="mr-2">
+                            
+                          </span>
+                          List Your Properties
+                        </a>
+                      </li>
+
+                       <!-- Your Dashboard -->
+                       <li>
+                        <a class="dropdown-item" href="">
+                          <span class="mr-2">
+                            
+                          </span>
+                         Your Dashboard
+                        </a>
+                      </li>
+                      
+                      <!-- Settings -->
+                      <li>
+                        <a class="dropdown-item" href="">
+                          <span class="mr-2">
+                            
+                          </span>
+                          Settings
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <!-- Divider -->
+                  <div class="dropdown-divider"></div>
+                  
+                  <!-- Sign Out -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <a class="dropdown-item" href="">
+                        <span class="mr-2">
+                          
+                        </span>
+                        Sign Out
+                      </a>
+                    </li>
+                  </ul>
+                  
+                </div>
+              </div>
+            </div>
+            
             <!-- Mobile Navigation Toggler -->
             <div class="mobile-nav-toggler">
               <span class="icon flaticon-menu"></span>
@@ -187,111 +259,13 @@
 <!-- End Main Header -->
 
 
-<!--Signup popup Modal -->
-<!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="imagelogo">
-          <img src="../../../assets/images/logo.svg" alt="Roomeey" title="Roomeey"/>
-        </div>
-		<button type="button" class="close" (click)="closeModal()"><i class="fa-solid fa-xmark"></i></button>
-        <div class="container" [ngClass]="{'right-panel-active': isRightPanelActive}">
-          <div class="form-container sign-up-container">
-
-            <form  #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-              <h1>Create Account</h1>
-              <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-              <span>or use your Phone Number for registration</span>
-
-              <div class="input-field">
-                <input type="text" placeholder="Enter your name" id="name" name="name" [(ngModel)]="user.name" minlength="3" required />
-                <div *ngIf="userForm.controls['name'].errors?.['minlength'] && userForm.controls['name'].touched" class="error-message">
-                  *please enter at least 3 characters
-                </div>
-                <div *ngIf="userForm.controls['name'].errors?.['required'] && userForm.controls['name'].touched" class="error-message">
-                  *please enter full name
-                </div>
-              </div>
 
 
-              <div class="input-field">
-                <input type="text" placeholder="Enter your Phone" id="phone" name="phone" maxlength="10" pattern="^[6-9]\d{9}$" [(ngModel)]="user.phone" required />
-                <div *ngIf="userForm.controls['phone'].errors?.['maxLength'] && userForm.controls['phone'].touched" class="error-message">
-                  *contact number cannot be more than 10 digits
-                </div>
-                <div *ngIf="userForm.controls['phone'].errors?.['required'] && userForm.controls['phone'].touched" class="error-message">
-                  *please enter a contact number
-                </div>
-                <div *ngIf="userForm.controls['phone'].errors?.['pattern'] && userForm.controls['phone'].touched" class="error-message">
-                  *please enter a valid contact number starting with 6, 7, 8, or 9 and having exactly 10 digits
-                </div>
-              </div>
-              
-
-              <div class="input-field">
-                <input type="password" id="password" placeholder="Enter your password" name="password" [(ngModel)]="user.password" required />
-               
-                <div *ngIf="userForm.controls['password'].errors?.['required'] && userForm.controls['password'].touched" class="error-message">
-                  *please enter a password
-                </div>
-                <div *ngIf="userForm.controls['password'].errors?.['minlength'] && userForm.controls['password'].touched" class="error-message">
-                  *password must be at least 6 characters long
-                </div>
-              </div>
 
 
-              <button [disabled]="isDisable" class="form-button sign-up-button" type="submit">Sign Up</button>
-            </form>
-            <div *ngIf="otpbox">
-              <form *ngIf="otpvarify" (ngSubmit)="onSubmitotp(userForm)">
-                <div align="center">
-                  <p>*Please check your email for OTP validation.</p>
-                  <div class="input-field">
-                    <input type="text" id="otp" name="otp" [(ngModel)]="otp" required />
-                  </div>
-                  <button class="form-button sign-up-button" [disabled]="isOTPDisable" type="submit">Verify OTP</button>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="form-container sign-in-container">
-            <form>
-              <h1>Sign in</h1>
-              <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-              <span>or use your account</span>
-              <input type="email" placeholder="Email" />
-              <input type="password" placeholder="Password" />
-              <a href="#">Forgot your password?</a>
-              <button  class="form-button" type="button">Sign In</button>
-            </form>
-          </div>
-          <div class="overlay-container">
-            <div class="overlay">
-              <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected, please login with your personal info</p>
-                <button class="ghost form-button" (click)="togglePanel(false)">Sign In</button>
-              </div>
-              <div class="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start a journey with us</p>
-                <button class="ghost form-button" (click)="togglePanel(true)">Sign Up</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
- -->
+
+
+
+
+

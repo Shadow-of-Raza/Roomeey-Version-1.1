@@ -9,7 +9,6 @@ import { ContactUsComponent } from './component/roomeey/contact-us/contact-us.co
 import { CareerComponent } from './component/roomeey/career/career.component';
 import { ServicesComponent } from './component/roomeey/services/services.component';
 import { SignInComponent } from './component/user/sign-in/sign-in.component';
-import { SignUpComponent } from './component/user/sign-up/sign-up.component';
 import { SignOutComponent } from './component/user/sign-out/sign-out.component';
 import { ProfileComponent } from './component/user/profile/profile.component';
 import { ProfileUpdateComponent } from './component/user/profile-update/profile-update.component';
@@ -34,9 +33,8 @@ const routes: Routes = [
   {path:'header',component:HeaderComponent},
   {path:'service',component:ServicesComponent},
   {path:'blog',component:BlogComponent},
-  {path:'sign-in',component:SignInComponent},
-  {path:'sign-up',component:SignUpComponent},
-  {path:'sign-out',component:SignOutComponent},
+  {path:'login',component:SignInComponent},
+  {path:'signout',component:SignOutComponent},
 
   //User
   {path:'profile',component:ProfileComponent},

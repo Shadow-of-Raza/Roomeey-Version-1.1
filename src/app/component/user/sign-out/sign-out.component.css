@@ -1,0 +1,82 @@
+
+/* Normal button and with arrow */
+button {
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 50px;
+    color: #fff;
+    padding: 1em 1.8em;
+    background: var(--main-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background-color:var(--color-two);
+  }
+  /* arrow starts from here */
+
+  button .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button .arrow {
+    margin-top: 1px;
+    width: 10px;
+    background:  var(--main-color);
+    height: 2px;
+    position: relative;
+    transition: 0.2s;
+  }
+  
+  button .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+  
+
+  
+  button:hover .arrow {
+    background: #fff;
+  }
+  
+  button:hover .arrow:before {
+    right: 0;
+  }
+
+
+
+  /* Icon button CSS */
+
+  #btn-icon{
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 50px;
+    color: #fff;
+    padding: 1em;
+    background: var(--main-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+
+  }
+
+  #btn-icon:hover {
+    background-color:var(--color-two);
+  }

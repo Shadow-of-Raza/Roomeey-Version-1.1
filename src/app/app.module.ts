@@ -31,6 +31,8 @@ import { CommonModule } from '@angular/common';
 import { SignUpComponent } from './component/user/sign-up/sign-up.component';
 import { SignInComponent } from './component/user/sign-in/sign-in.component';
 import { SignOutComponent } from './component/user/sign-out/sign-out.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -70,7 +72,8 @@ import { SignOutComponent } from './component/user/sign-out/sign-out.component';
     AppRoutingModule,
     FormsModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,7 +22,12 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "_redirects",
+                "input": "src/assets",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/styles.css",                           
@@ -34,7 +39,8 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js", 
-              "node_modules/bootstrap/dist/js/bootstrap.min.js" 
+              "node_modules/bootstrap/dist/js/bootstrap.min.js" ,
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
 
           },
@@ -43,14 +49,14 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1mb", 
+                  "maximumError": "2mb" 
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
+                  "maximumWarning": "10kb",
+                  "maximumError": "12kb"
+                }                
               ],
               "outputHashing": "all"
             },

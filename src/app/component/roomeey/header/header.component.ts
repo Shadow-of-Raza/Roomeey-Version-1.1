@@ -10,8 +10,6 @@ declare var $: any;
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isSignIn: boolean;
-
   // Constructor 
 
   constructor(private renderer: Renderer2,
@@ -22,10 +20,6 @@ export class HeaderComponent implements OnInit {
   // Variable field 
 
   
-  profile: boolean = true; // Enable or disable profile 
-  men: boolean = false; // Enable or disable men default image 
-  women: boolean = false; // Enable or disable women default image 
-  user_icon: boolean = true; // Enable or disable user image 
   list_your_properties: boolean = true; // Enable or disable list_your_properties button
   owner_dashboard: boolean = false; // Enable or disable owner_dashboard button
   
@@ -39,29 +33,6 @@ export class HeaderComponent implements OnInit {
     this.initSearchBoxListeners();
     this.sortedNames = this.names.sort();
   }
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   //==========================================================================//
@@ -188,20 +159,16 @@ export class HeaderComponent implements OnInit {
   }
 
   //==========================================================================//
-  //                              Signup  Toggle                              //
+  //                              Profile  dropdown                           //
   //==========================================================================//
-  isRightPanelActive = false;
+  
+  isMenuActive: boolean = false;
 
-  openModal(): void {
-    $('#loginModal').modal('show');
-  }
-
-  togglePanel(active: boolean): void {
-    this.isRightPanelActive = active;
-  }
-
-  closeModal(): void {
-    $('#loginModal').modal('hide');
+  toggleMenu(): void {
+    console.log('Dropdown toggled');
+    this.isMenuActive = !this.isMenuActive;
+    console.log('Dropdown toggled1111');
+    
   }
 
 
