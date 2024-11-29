@@ -28,6 +28,17 @@
     line-height: normal;
 }
 
+.user-inner span{
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer; 
+}
+.user-inner {
+  font-size: 14px;
+  font-weight: 200;
+  line-height: normal;
+}
+
 .profile-inner{
   position: relative;
   display: flex;
