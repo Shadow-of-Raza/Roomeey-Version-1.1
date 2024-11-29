@@ -110,48 +110,29 @@
             </div>
 
             <!-- Header Button Box -->
-           
-            <div *ngIf="list_your_properties" class="header_button-box">
-              <a class="theme-btn btn-style-one">
-                <span class="btn-wrap">
-                  <span class="text-one">List Your Properties</span>
-                  <span class="text-two">List Your Properties</span>
-                </span>
-              </a>
-            </div>
-            <div *ngIf="owner_dashboard" class="header_button-box">
-              <a class="theme-btn btn-style-one">
-                <span class="btn-wrap">
-                  <span class="text-one">Owner Dashboard</span>
-                  <span class="text-two">Owner Dashboard</span>
-                </span>
-              </a>
-            </div>
 
             <!-- Profile box -->
             <div class="list-unstyled">
               <div class="dropdown-menubar ml-2">
                 
                 <!-- Dropdown Button -->
-                <a class="rounded-circle" href="#" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="profile"  id="dropdownUser" data-toggle="dropdown" >
+                  <div class="user"> <span>Hello, Katherine Cooper</span></div>
                   <div class="avatar avatar-md avatar-indicators avatar-online">
                     <img src="https://i.postimg.cc/BvNYhMHS/user-img.jpg" alt="some user image" class="rounded-circle" />
                   </div>
-                </a>
+                </div>
                 
                 <!-- Dropdown Menu -->
                 <div class="dropdown-menu pb-2" aria-labelledby="dropdownUser">
                   
                   <!-- User Info -->
                   <div class="dropdown-item">
-                    <div class="d-flex py-2">
-                      <div class="avatar avatar-md avatar-indicators avatar-online">
+                    <div class="profile-inner d-flex py-2">
+                      <div class="avatar ">
                         <img src="https://i.postimg.cc/BvNYhMHS/user-img.jpg" alt="some user image" class="rounded-circle" />
                       </div>
-                      <div class="ml-3 lh-1">
-                        <h5 class="mb-0">Annette Black</h5>
-                        <p class="mb-0">annette@company.com</p>
-                      </div>
+                      <div class="user"> <span>Katherine Cooper</span> <br><u> @Katherine Cooper</u></div>
                     </div>
                   </div>
                   
@@ -164,40 +145,40 @@
                       
                       <!-- Profile -->
                       <li>
-                        <a class="dropdown-item" href="">
-                          <span class="mr-1">
-                            
-                          </span>
+                        <a class="dropdown-item">
+                          <i class="fa-solid fa-user  px-2"></i>
                           Profile
                         </a>
                       </li>
                       
                       <!-- List Your Properties -->
                       <li>
-                        <a class="dropdown-item" href="">
-                          <span class="mr-2">
-                            
-                          </span>
+                        <a class="dropdown-item">
+                          <i class="fa-solid fa-house  px-2"></i>
                           List Your Properties
                         </a>
                       </li>
 
                        <!-- Your Dashboard -->
                        <li>
-                        <a class="dropdown-item" href="">
-                          <span class="mr-2">
-                            
-                          </span>
-                         Your Dashboard
+                        <a class="dropdown-item" >
+                          <i class="fa fa-dashboard  px-2"></i>
+                          Your Dashboard
+                        </a>
+                      </li>
+
+                      <!--  -->
+                      <li>
+                        <a class="dropdown-item">
+                          <i class="fa-solid fa-heart  px-2"></i>
+                          Wishlist
                         </a>
                       </li>
                       
                       <!-- Settings -->
                       <li>
-                        <a class="dropdown-item" href="">
-                          <span class="mr-2">
-                            
-                          </span>
+                        <a class="dropdown-item">
+                          <i class="fa-solid fa-gear  px-2"></i>
                           Settings
                         </a>
                       </li>
@@ -211,10 +192,8 @@
                   <!-- Sign Out -->
                   <ul class="list-unstyled">
                     <li>
-                      <a class="dropdown-item" href="">
-                        <span class="mr-2">
-                          
-                        </span>
+                      <a class="dropdown-item" >
+                        <i class="fas fa-sign-out  px-2"></i>
                         Sign Out
                       </a>
                     </li>
