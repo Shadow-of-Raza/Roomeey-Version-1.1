@@ -23,9 +23,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    /* padding: 20px; */
     margin: auto; /* Centers the form vertically and horizontally */
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+	/* border: 1px solid red; */
 }
 
 /* Content inside the forms */
@@ -34,6 +35,7 @@
     max-width: 900px; /* Limit the width of the form */
     padding: 20px;
     box-sizing: border-box;
+	/* border: 1px solid red; */
 }
 
 /* Fix for screen sizes */
@@ -117,7 +119,7 @@ input[type=radio] {
   
 
 
-p {
+.aready-have-an-account {
 	margin-bottom: 0px;
 	font-size: 15px;
 	color: #777; 
@@ -152,7 +154,9 @@ h4 {
 	font-family: Poppins, sans-serif; 
 }
 .container {
-	width: 900px;
+	/* border: 1px solid #1da0f2; */
+
+	width: 100%;
 	background: #fff;
 	/* margin: 0 auto; */
 	box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
@@ -183,10 +187,11 @@ h4 {
 .signup-form{
 	margin: 0 2.5%;
 	width: 50%;
+	border-right: 1px solid #A9A9A9;
 }
   
 .signup-image {
-	
+	/* border: 1px solid blue; */
 	width: 40%;
 }
 
@@ -200,7 +205,7 @@ h4 {
 }
 
 .signup-image .logo  h4{
-	text-align: center;
+	/* text-align: center; */
 	position: relative;
 	bottom: 20px;
 	text-decoration: none;
@@ -213,11 +218,20 @@ h4 {
 	font-size: small;
 }
 
-.signup-image-link {
+
+
+/* OTP section */
+.otp-receive{
+	margin-bottom: 0px;
 	font-size: 14px;
-	color: #222;
-	display: block;
-	text-align: center; 
+	color: #383838	;
+	text-align: center;
+}
+.otp-receive span{
+	font-weight: bold;
+	color: #202020	;
+
+
 }
 
 /* Signin */
@@ -235,11 +249,11 @@ h4 {
 .signin-form{
 	margin: 0 2.5%;
 	width: 50%;
-
+	border-left: 1px solid #A9A9A9	;
 }
  
 .signin-image {
-	
+	/* border: 1px solid blue; */
 	width: 40%;
 
 }
@@ -416,7 +430,7 @@ figure {
   
 .form-group {
 	position: relative;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 	/* overflow: hidden;*/
 }
 
@@ -433,6 +447,27 @@ input {
 	font-family: Poppins;
 	box-sizing: border-box; 
 }
+
+/* error */
+
+/* Default state: No error initially (when empty) */
+input:not(:focus):placeholder-shown {
+    color: black;
+    border-bottom: 1px solid #999;
+}
+
+/* When input is valid, keep normal styles */
+input:not(:focus):valid {
+    color: black;
+    border-bottom: 1px solid #999;
+}
+
+/* When input is invalid AND not empty (user has typed something wrong) */
+input:not(:focus):invalid:not(:placeholder-shown) {
+    color: var(--main-color) !important;
+    border-bottom: 1px solid var(--main-color) !important;
+}
+
 
 input::-webkit-input-placeholder {
 	  color: #999; 
@@ -532,7 +567,7 @@ input[type=checkbox]:not(old):checked + label > span:before {
 .input-label {
 	position: absolute;
 	left: 0;
-	top: 50%;
+	top: 19px;
 	transform: translateY(-50%);
 	-moz-transform: translateY(-50%);
 	-webkit-transform: translateY(-50%);
@@ -761,13 +796,16 @@ button {
   }
 
 
+  i{
+	/* position: fixed; */
+  }
 
 
 
 
   /* Error message and OTP message styling */
 .error-message {
-	color: red;
+	color: var(--main-color);
 	font-size: smaller;
 }
 
@@ -775,3 +813,5 @@ button {
 	color: green;
 	font-size: smaller;
 }  
+
+

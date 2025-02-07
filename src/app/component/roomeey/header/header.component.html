@@ -99,8 +99,6 @@
               </div>
                 <!-- End Search Popup -->                  
                   
-                <!-- Profile Picture And Setting Button -->
-                  
 
                 
                    <!-- Header search icon -->
@@ -116,7 +114,8 @@
               <div class="dropdown-menubar ml-2">
                 
                 <!-- Dropdown Button -->
-                <div class="profile"  id="dropdownUser" data-toggle="dropdown" >
+
+                <div class="profile" (click)="toggleDropdown()">
                   <div class="user"> <span>Hello, Katherine Cooper</span></div>
                   <div class="avatar avatar-md avatar-indicators avatar-online">
                     <img src="https://i.postimg.cc/BvNYhMHS/user-img.jpg" alt="some user image" class="rounded-circle" />
@@ -124,8 +123,8 @@
                 </div>
                 
                 <!-- Dropdown Menu -->
-                <div class="dropdown-menu pb-2" aria-labelledby="dropdownUser">
-                  
+
+                <div class="dropdown-menu pb-2" [ngClass]="{ 'show': isDropdownOpen }" aria-labelledby="dropdownUser">
                   <!-- User Info -->
                   <div class="dropdown-item">
                     <div class="profile-inner d-flex py-2">

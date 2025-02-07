@@ -161,14 +161,11 @@ export class HeaderComponent implements OnInit {
   //==========================================================================//
   //                              Profile  dropdown                           //
   //==========================================================================//
-  
-  isMenuActive: boolean = false;
 
-  toggleMenu(): void {
-    console.log('Dropdown toggled');
-    this.isMenuActive = !this.isMenuActive;
-    console.log('Dropdown toggled1111');
-    
+  isDropdownOpen: boolean = false;
+
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 
 

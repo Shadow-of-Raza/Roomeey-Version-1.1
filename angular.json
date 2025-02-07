@@ -35,12 +35,14 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css", 
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/fontawesome.css",
-              "node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css"
+              "node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css",
+              "node_modules/intl-tel-input/build/css/intlTelInput.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js", 
               "node_modules/bootstrap/dist/js/bootstrap.min.js" ,
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/intl-tel-input/build/js/intlTelInput.min.js"
             ]
 
           },

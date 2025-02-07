@@ -63,6 +63,7 @@
     border-radius: 0.5rem;
     right: 0%;
     width: auto;
+    display: none;
   }
   
   .dropdown-menu {
@@ -72,19 +73,14 @@
     transform: translateY(20px);
     transition: all 0.3s ease-in;
   }
-  
-  .dropdown-menubar:hover > .dropdown-menu {
+
+  .dropdown-menu.show{
+    display: block;
     transform: scaleY(1);
     opacity: 1;
     visibility: visible;
   }
-  
-  .dropdown-submenu:hover > .dropdown-menu {
-    transform: scaleY(1);
-    opacity: 1;
-    visibility: visible;
-  }
-  
+
   @media (min-width: 990px) {
     .dropright-lg {
       position: relative;

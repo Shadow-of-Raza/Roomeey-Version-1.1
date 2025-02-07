@@ -10,24 +10,24 @@
 </nav>
 
 
-<div class="container-fluid body" >   
-    <div class="signup" *ngIf="formState === 'signup'" [@slideInOut]="'in'">
+<div class="container-fluid body " >   
+    <div class="signup mt-4" *ngIf="formState === 'signup'" [@slideInOut]="'in'">
         <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">Sign up</h2>     
-                    <form>
+                    <form *ngIf="signupbox" #userForm="ngForm" (ngSubmit)="onSignup(userForm)">
                         <div>
-                            <p>Are you</p>
+                            Choose Your Role:
                             <div class="radio-inputs form-group pb-3">
                                 <label>
-                                    <input class="radio-input" type="radio" name="engine" checked>
+                                    <input class="radio-input" type="radio" name="engine" value=false checked>
                                         <span class="radio-tile">
                                             <span class="radio-label">Customer</span>
                                         </span>
                                 </label>
                                 <label>
-                                    <input class="radio-input" type="radio" name="engine">
+                                    <input class="radio-input" type="radio" name="engine" value=true>
                                     <span class="radio-tile">
                                         <span class="radio-label">Owner</span>
                                     </span>
@@ -36,31 +36,60 @@
                         </div>
                         
                         <div class="form-group">
-                            <label class="input-label" for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="name" id="name" placeholder="Your Name"   />
+                            <label class="input-label" for="name"><i class="zmdi zmdi-account"></i></label>
+                            <input type="text" placeholder="Enter your name" id="name" name="name" [(ngModel)]="user.name" minlength="3" required pattern="[a-zA-Z]+" (ngModelChange)="validateNameInput()" />
+                                <div *ngIf="userForm.controls['name'].errors?.['minlength'] && userForm.controls['name'].touched" class="error-message">
+                                    *Please enter at least 3 characters.
+                                </div>
+                                <div *ngIf="userForm.controls['name'].errors?.['required'] && userForm.controls['name'].touched" class="error-message">
+                                    *Please enter your name.
+                                </div>                            
                         </div>
+
                         <div class="form-group">
                             <label class="input-label" for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="email" name="email" id="email" placeholder="Your Email"   />
+                            <input type="email" id="email" name="email" placeholder="Enter your email" [(ngModel)]="user.email" required email pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}">
+                            <div *ngIf="userForm.controls['email'].errors?.['required'] && userForm.controls['email'].touched" class="error-message">
+                              *Please enter your email.
+                            </div>
+                            <div *ngIf="userForm.controls['email'].errors?.['pattern'] && userForm.controls['email'].touched" class="error-message">
+                              *Please enter a valid email address (e.g., example@example.com).
+                            </div>
                         </div>
+
                         <div class="form-group">
                             <label class="input-label" for="phone"><i class="zmdi zmdi-phone"></i></label>
-                            <input type="text" placeholder="Enter your Phone" id="phone" name="phone" maxlength="10" pattern="^[6-9]\d{9}$" />
+                            <input type="text" placeholder="Enter your Phone" id="phone" name="phone" maxlength="10" pattern="^[6-9]\d{9}$" [(ngModel)]="user.phone" required />
+                              <div *ngIf="userForm.controls['phone'].errors?.['maxLength'] && userForm.controls['phone'].touched" class="error-message">
+                                *contact number cannot be more than 10 digits.
+                              </div>
+                              <div *ngIf="userForm.controls['phone'].errors?.['required'] && userForm.controls['phone'].touched" class="error-message">
+                                *Please enter your contact number.
+                              </div>
+                              <div *ngIf="userForm.controls['phone'].errors?.['pattern'] && userForm.controls['phone'].touched" class="error-message">
+                                *Please enter a valid contact number starting with 6, 7, 8, or 9 and having exactly 10 digits
+                              </div>
                         </div>
+                        
                         <div class="form-group">
                             <label class="input-label" for="pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input 
-                                type="{{ showPassword ? 'text' : 'password' }}"
-                                name="pass" 
-                                id="pass" 
-                                placeholder="Password"   />
-                            <i 
+                            <input type="{{ showPassword ? 'text' : 'password' }}" 
+                            id="password" 
+                            placeholder="Enter your password" 
+                            name="password" 
+                            [attr.pattern]="passwordPattern" 
+                            pattern=".{8,}" 
+                            title="Password must be 8-64 characters long, contain at least one uppercase letter, one lowercase letter, and one number or special character." 
+                            [(ngModel)]="user.password" 
+                            required />                            <i 
                                 class="zmdi zmdi-eye" 
                                 (click)="togglePasswordVisibility()" 
                                 [ngClass]="{ 'zmdi-eye-off': showPassword, 'zmdi-eye': !showPassword }"
                                 style="cursor: pointer; position: absolute; right: 10px; top: 10px;">
                             </i>
+                            <i class="zmdi zmdi-info " style="cursor: pointer; position: absolute; right: 30px; top: 10px;"></i>
                         </div>
+
                         <div class="form-group">
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"   />
                             <label class="input-label" for="agree-term" class="label-agree-term">
@@ -68,7 +97,7 @@
                             </label>
                         </div>
                         <div class="form-button">
-                            <button>Register
+                            <button type="submit" name="signup" id="signup" >Register
                                 <div class="arrow-wrapper">
                                     <div class="arrow"></div>
                                 </div>
@@ -76,8 +105,30 @@
                         </div>
                         
                     </form>
+
+                    <!-- OTP Box -->
+                    <form *ngIf="otpbox">
+                        
+                            <h4>OTP Verification</h4>    
+               
+                            <a><i class="zmdi zmdi-arrow-left"></i> Back</a>
+                            <p class="otp-receive">
+                             Enter the OTP you received to <span><u>phone</u> </span> 
+                            </p>
+                        <div class="form-group">
+                          <label class="input-label" for="otp"><i class="zmdi zmdi-lock"></i></label>
+                          <input type="text" id="otp" name="otp" placeholder="Enter OTP" required />
+                            <div id="message-otp">
+                              Please check your phone for OTP
+                            </div>
+                        </div>
+                        <button class="global-btn" type="submit">Verify-OTP</button>
+                    </form>
                     
-                    <p>
+                       
+                     
+                    
+                    <p class="aready-have-an-account">
                         Already have an account? <a (click)="switchForm('login')">Login</a>
                     </p>
   
@@ -109,7 +160,7 @@
     </div>
 
     <!-- Sing in  Form -->
-    <div class="sign-in" *ngIf="formState === 'login'" [@slideInOut]="'in'" >
+    <div class="sign-in mt-4" *ngIf="formState === 'login'" [@slideInOut]="'in'" >
         <div class="container">
             <div class="signin-content">
                 <div class="signin-image">
@@ -135,9 +186,11 @@
                 <div class="signin-form">
                     <h2 class="form-title">Login</h2>
                     <form>
+
+                        
                         <div class="form-group">
                             <label class="input-label" for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="your_name" id="your_name" placeholder="Enter your Email or Phone"/>
+                            <input type="text" name="your_name" id="your_name" placeholder="Enter your Email or Phone" minlength="3"/>
                         </div>
                         <div class="form-group">
                             <label class="input-label" for="your_pass"><i class="zmdi zmdi-lock"></i></label>
@@ -171,7 +224,7 @@
                             <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
                         </ul>
                     </div>
-                    <p>
+                    <p class="aready-have-an-account">
                         Don't have an account? <a (click)="switchForm('signup')">Sign-Up</a>
                     </p>
                 </div>

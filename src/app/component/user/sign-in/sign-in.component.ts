@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -19,27 +22,47 @@ import { trigger, transition, style, animate } from '@angular/animations';
 
 })
 export class SignInComponent {
-
-
-  formState: 'signup' | 'login' = 'login'; 
-
-
-
+  formState: 'signup' | 'login' = 'signup'; // Change this to display form in front of screen while loding the page.
   switchForm(state: 'signup' | 'login') {
     this.formState = state;
   }
+   passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9!@#$%^&*()_+\\-=[\\]{};':\"\\\\|,.<>/?]).{8,64}$";
 
-  showPassword = false;
 
-  togglePasswordVisibility() {
-    this.showPassword = !this.showPassword;
-  }
+  constructor(private renderer: Renderer2,
+    private dataService: DataService,
+    private router: Router
+  ) {}
+
+  // NgIf variables
+  signupbox: boolean = true;
+  otpbox: boolean = false;
+  showPassword: boolean;
+  phoneOtp: string; 
+  otp: string;
+  otpvarify: boolean = false;
+  isDisable: boolean = false;
+  isOTPDisable: boolean = false;
+  showNumberErrorMessage = false;
+
+// User Class
+
+user: any = {
+  name: '',
+  email:'',
+  phone: '',
+  password: '',
+  isOwner: false
+};
+
+
 
 
   
   // This method for signup logic
-  onSignup() {
-    
+  onSignup(userForm: NgForm) {
+    this.signupbox =  false;
+    this.otpbox = true;
   }
 
   // This method for otp Varification logic
@@ -52,4 +75,24 @@ export class SignInComponent {
     
   }
 
+//Other methods
+
+  //showPassword = false;
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+  
+  validateNameInput() {
+    const inputValue = this.user.name;
+    
+    // Use a regular expression to check if the input contains numbers
+    const numberRegex = /\d+/;
+    const hasNumbers = numberRegex.test(inputValue);
+    
+    // Update the flag based on whether numbers are found
+    this.showNumberErrorMessage = hasNumbers;
+  }
 }
+
+
