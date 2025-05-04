@@ -450,24 +450,11 @@ input {
 
 /* error */
 
-/* Default state: No error initially (when empty) */
-input:not(:focus):placeholder-shown {
-    color: black;
-    border-bottom: 1px solid #999;
-}
 
-/* When input is valid, keep normal styles */
-input:not(:focus):valid {
-    color: black;
-    border-bottom: 1px solid #999;
-}
-
-/* When input is invalid AND not empty (user has typed something wrong) */
-input:not(:focus):invalid:not(:placeholder-shown) {
+input.ng-invalid.ng-touched {
     color: var(--main-color) !important;
     border-bottom: 1px solid var(--main-color) !important;
 }
-
 
 input::-webkit-input-placeholder {
 	  color: #999; 
@@ -735,7 +722,7 @@ input[type=checkbox]:not(old):checked + label > span:before {
 }
 
 /* Normal button and with arrow */
-button {
+.global-btn {
 	
 	display: flex;
 	text-align: center;
@@ -751,18 +738,18 @@ button {
     font-weight: bold;
   }
 
-  button:hover {
+  .global-btn:hover {
     background-color:var(--color-two);
   }
   /* arrow starts from here */
 
-  button .arrow-wrapper {
+  .global-btn .arrow-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  button .arrow {
+  .global-btn .arrow {
     margin-top: 1px;
     width: 10px;
     background:  var(--main-color);
@@ -771,7 +758,7 @@ button {
     transition: 0.2s;
   }
   
-  button .arrow::before {
+  .global-btn .arrow::before {
     content: "";
     box-sizing: border-box;
     position: absolute;
@@ -787,11 +774,11 @@ button {
   
 
   
-  button:hover .arrow {
+  .global-btn:hover .arrow {
     background: #fff;
   }
   
-  button:hover .arrow:before {
+  .global-btn:hover .arrow:before {
     right: 0;
   }
 
@@ -800,8 +787,52 @@ button {
 	/* position: fixed; */
   }
 
+/* Password field info */
 
+  #tooltip{
+	cursor: pointer; 
+	position: absolute; 
+	right: 30px; 
+	top: 10px; 
+  }
+  #tooltip .tooltiptext p{
+	color: #fff;
+  }
+  #tooltip .tooltiptext ul li{
+	list-style-type: disc;
+	margin-bottom: 2px;
+  }
 
+  #tooltip .tooltiptext {
+	visibility: hidden;
+	width: 230px;
+	background-color: rgb(41, 41, 41);
+	color: #fff;
+	border-radius: 6px;
+	padding: 5px 10px;
+	position: absolute;
+	z-index: 1;
+	bottom: 150%;
+	/* left: 50%; */
+	margin-left: -180px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.105);
+  transition: all 0.5s;
+  }
+  
+  #tooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 81%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color:  rgb(41, 41, 41) transparent transparent transparent;
+  }
+  
+  #tooltip:hover .tooltiptext {
+	visibility: visible;
+  }
 
   /* Error message and OTP message styling */
 .error-message {
